@@ -1,0 +1,19 @@
+version: "3"
+
+vars:
+  IMAGE_NAME: ghcr.io/lewisdenny/nas-bootc
+  IMAGE_TAG: latest
+  IMAGE_REF: "{{.IMAGE_NAME}}:{{.IMAGE_TAG}}"
+
+tasks:
+  build:
+    desc: Build the container image
+    platforms: [linux]
+    cmds:
+      - sudo podman build -t {{.IMAGE_REF}} .
+
+  push:
+    desc: Push the container image
+    platforms: [linux]
+    cmds:
+      - sudo podman push {{.IMAGE_REF}}

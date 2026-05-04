@@ -1,0 +1,10 @@
+[customizations.installer.kickstart]
+contents = """
+# Force the graphical interface
+graphical
+
+# Remove the --non-interactive flag
+# We keep zerombr to initialize disks, but we remove autopart 
+# so you can do it manually in the UI
+zerombr
+"""

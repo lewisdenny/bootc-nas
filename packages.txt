@@ -1,0 +1,35 @@
+cockpit                     # Web management UI
+cockpit-storaged            # Cockpit disk/RAID/LVM management
+cockpit-networkmanager      # Cockpit network management
+cockpit-podman              # Cockpit container management
+samba                       # SMB/CIFS file sharing (Windows/Mac/Linux)
+samba-client                # smbclient for testing shares
+nfs-utils                   # NFS file sharing (Linux-to-Linux)
+minidlna                    # DLNA media streaming to TVs/consoles
+
+btrfs-progs                 # mkfs.btrfs, btrfs scrub/balance/subvolume
+xfsprogs                    # mkfs.xfs
+e2fsprogs                   # mkfs.ext4 (usually in base, but be explicit)
+mdadm                       # Software RAID (md arrays)
+lvm2                        # LVM + vgchange/dmsetup (disk wipe cleanup)
+gdisk                       # sgdisk for GPT partition table wiping
+parted                      # partprobe (re-read partition tables)
+cryptsetup                  # LUKS disk encryption
+
+smartmontools               # SMART disk health (smartctl, smartd)
+node-exporter               # Prometheus host metrics exporter
+hdparm                      # HDD spindown, APM, drive tuning
+ethtool                     # Network interface diagnostics
+
+firewalld                   # Firewall management (firewall-cmd)
+avahi                       # mDNS/Bonjour — lets clients find NAS via .local
+nss-mdns                    # NSS plugin for .local resolution
+
+rsync                       # File sync/backup
+tmux                        # Terminal multiplexer for remote admin
+htop                        # Interactive process monitor
+iotop                       # Disk I/O monitor
+nvim                        # Editor
+bash-completion             # Tab completion for all the tools above
+lshw                        # lshw command
+pciutils                    # lspci command

@@ -1,0 +1,44 @@
+name: Container
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  IMAGE_NAME: ghcr.io/lewisdenny/nas-bootc
+
+jobs:
+  build:
+    name: Build and push image
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Install build tools
+        run: sudo apt-get update && sudo apt-get install -y buildah
+
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Build image
+        run: |
+          buildah bud \
+            --layers \
+            --tag "${IMAGE_NAME}:latest" \
+            --tag "${IMAGE_NAME}:${GITHUB_SHA}" \
+            --file Containerfile \
+            .
+
+      - name: Log in to GHCR
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | buildah login ghcr.io --username "${{ github.actor }}" --password-stdin
+
+      - name: Push image
+        run: |
+          buildah push "${IMAGE_NAME}:latest"
+          buildah push "${IMAGE_NAME}:${GITHUB_SHA}"
