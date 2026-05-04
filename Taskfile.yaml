@@ -10,7 +10,7 @@ tasks:
     desc: Build the container image
     platforms: [linux]
     cmds:
-      - sudo podman build -t {{.IMAGE_REF}} .
+      - sudo podman build --file Containerfile -t {{.IMAGE_REF}} .
 
   push:
     desc: Push the container image
