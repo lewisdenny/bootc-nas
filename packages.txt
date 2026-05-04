@@ -2,6 +2,9 @@ cockpit                     # Web management UI
 cockpit-storaged            # Cockpit disk/RAID/LVM management
 cockpit-networkmanager      # Cockpit network management
 cockpit-podman              # Cockpit container management
+cockpit-machines            # Cockpit VM management
+cockpit-selinux             # Cockpit SELinux management
+cockpit-files               # Cockpit file browser
 samba                       # SMB/CIFS file sharing (Windows/Mac/Linux)
 samba-client                # smbclient for testing shares
 nfs-utils                   # NFS file sharing (Linux-to-Linux)
